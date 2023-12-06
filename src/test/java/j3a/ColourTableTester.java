@@ -16,6 +16,9 @@ public class ColourTableTester {
         assertFalse(new ColourTable(5).correctPaletteSize(5));
         assertFalse(new ColourTable(1027).correctPaletteSize(1027));
     }
-//    @Test
-//    public void test
+    @Test
+    public void testColourIsValidSuccess(){
+        assertTrue(new ColourTable(8).validColour(new int[]{0,0,0}));
+        assertTrue(new ColourTable(8).validColour(new int[]{111,222,112}));
+    }
 }

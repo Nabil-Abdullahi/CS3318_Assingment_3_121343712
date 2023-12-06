@@ -1,5 +1,7 @@
 package j3a;
 
+import java.util.Arrays;
+
 public class ColourTable {
 
     private int paramAmount;
@@ -16,7 +18,17 @@ public class ColourTable {
 
     }
 
+    public void add(int[] checkColour) {
+        if (!validColour(checkColour)) {
+            throw new IllegalArgumentException("Invalid RGB color. Each component must be in the range [0, 255].");
+        }
+    }
+
     public boolean correctPaletteSize(int paramAmount) {
         return paramAmount > 1 && paramAmount < 1025 && (paramAmount & (paramAmount - 1)) == 0;
+    }
+
+    public boolean validColour(int[] checkColour) {
+        return Arrays.stream(checkColour).allMatch(a -> a >= 0 && a <= 255);
     }
 }
