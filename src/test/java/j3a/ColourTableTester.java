@@ -2,8 +2,7 @@ package j3a;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ColourTableTester {
     @Test
@@ -18,7 +17,39 @@ public class ColourTableTester {
     }
     @Test
     public void testColourIsValidSuccess(){
-        assertTrue(new ColourTable(8).validColour(new int[]{0,0,0}));
-        assertTrue(new ColourTable(8).validColour(new int[]{111,222,112}));
+        ColourTable colourTable = new ColourTable(4);
+
+        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,0})); // red
+        assertDoesNotThrow(()-> colourTable.add(new int[]{0,255,0})); // green
+        assertDoesNotThrow(()-> colourTable.add(new int[]{0,0,255})); // blue
+        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,255})); //fuchsia
+    }
+
+    @Test
+    public void testColourIsValidFail(){
+        ColourTable colourTable = new ColourTable(4);
+
+        assertDoesNotThrow(()-> colourTable.add(new int[]{-255,0,0})); // red
+        assertDoesNotThrow(()-> colourTable.add(new int[]{0,-255,0})); // green
+        assertDoesNotThrow(()-> colourTable.add(new int[]{0,0,-255})); // blue
+        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,-255})); //fuchsia
+    }
+    @Test
+    public void testColourBeingAddedS(){
+        ColourTable colourTable = new ColourTable(4);
+        
+        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,0})); // red
+        assertDoesNotThrow(()-> colourTable.add(new int[]{0,255,0})); // green
+        assertDoesNotThrow(()-> colourTable.add(new int[]{0,0,255})); // blue
+        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,255})); //fuchsia
+    }
+    @Test
+    public void testColourBeingAddedF(){
+        ColourTable colourTable = new ColourTable(2);
+
+        colourTable.add(new int[]{255,0,0}); // red
+        colourTable.add(new int[]{0,255,0}); // green
+        colourTable.add(new int[]{0,0,255}); // blue
     }
 }
+

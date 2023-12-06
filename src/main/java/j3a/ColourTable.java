@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class ColourTable {
 
-    private int paramAmount;
-    private int[][] cPalette;
+    private final int paramAmount;
+    private final int[][] cPalette;
 
 
 
@@ -17,11 +17,27 @@ public class ColourTable {
         this.cPalette = new int[paramAmount][3];
 
     }
-
     public void add(int[] checkColour) {
         if (!validColour(checkColour)) {
             throw new IllegalArgumentException("Invalid RGB color. Each component must be in the range [0, 255].");
         }
+        int ind = availability();
+        if (ind != -1){
+            cPalette[ind] = Arrays.copyOf(checkColour, checkColour.length);
+        }
+        else {
+            throw new IllegalArgumentException("Past max capacity of ColourTable");
+        }
+        
+    }
+
+    public int availability() {
+        for (int i =0; i < paramAmount; i++){
+            if (Arrays.equals(cPalette[i], new int[]{0, 0, 0})){
+                return i;
+            }
+        }
+        return -1;
     }
 
     public boolean correctPaletteSize(int paramAmount) {
