@@ -19,29 +19,29 @@ public class ColourTableTester {
     public void testColourIsValidSuccess(){
         ColourTable colourTable = new ColourTable(4);
 
-        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,0})); // red
-        assertDoesNotThrow(()-> colourTable.add(new int[]{0,255,0})); // green
-        assertDoesNotThrow(()-> colourTable.add(new int[]{0,0,255})); // blue
-        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,255})); //fuchsia
+        colourTable.add(new int[]{255,0,0}); // red
+        colourTable.add(new int[]{0,255,0}); // green
+        colourTable.add(new int[]{0,0,255}); // blue
+        colourTable.add(new int[]{255,0,255}); //fuchsia
     }
 
     @Test
     public void testColourIsValidFail(){
         ColourTable colourTable = new ColourTable(4);
 
-        assertDoesNotThrow(()-> colourTable.add(new int[]{-255,0,0})); // red
-        assertDoesNotThrow(()-> colourTable.add(new int[]{0,-255,0})); // green
-        assertDoesNotThrow(()-> colourTable.add(new int[]{0,0,-255})); // blue
-        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,-255})); //fuchsia
+        colourTable.add(new int[]{-255,0,0}); // red
+        colourTable.add(new int[]{0,-255,0}); // green
+        colourTable.add(new int[]{0,0,-255}); // blue
+        colourTable.add(new int[]{255,0,-255}); //fuchsia
     }
     @Test
     public void testColourBeingAddedS(){
         ColourTable colourTable = new ColourTable(4);
         
-        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,0})); // red
-        assertDoesNotThrow(()-> colourTable.add(new int[]{0,255,0})); // green
-        assertDoesNotThrow(()-> colourTable.add(new int[]{0,0,255})); // blue
-        assertDoesNotThrow(()-> colourTable.add(new int[]{255,0,255})); //fuchsia
+        colourTable.add(new int[]{255,0,0}); // red
+        colourTable.add(new int[]{0,255,0}); // green
+        colourTable.add(new int[]{0,0,255}); // blue
+        colourTable.add(new int[]{255,0,255}); //fuchsia
     }
     @Test
     public void testColourBeingAddedF(){
